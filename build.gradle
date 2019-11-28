@@ -1,12 +1,17 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.3.61'
+    id 'org.jetbrains.kotlin.jvm' version '1.3.50'
+    id 'application'
+}
+
+application {
+    mainClassName = 'ru.vorxa.NCraftServerKt'
 }
 
 group 'ru.vorxa'
 version '1.0-SNAPSHOT'
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -14,6 +19,8 @@ dependencies {
     implementation "io.ktor:ktor-server-cio:1.2.6"
     implementation "io.ktor:ktor-gson:1.2.6"
     implementation "ch.qos.logback:logback-classic:1.2.3"
+    implementation 'org.kodein.di:kodein-di-generic-jvm:6.3.3'
+    implementation 'org.kodein.di:kodein-di-framework-ktor-server-jvm:6.3.3'
     testImplementation "io.ktor:ktor-server-tests:1.2.6"
 
 }
