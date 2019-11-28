@@ -33,7 +33,10 @@ fun Routing.v1() {
             call.respond(response)
         }
         delete("/{id}") {
-            TODO()
+            val id = call.parameters["id"]?.toLongOrNull() ?: throw ParameterConversionException("id", "Long")
+            repo.removeById(id) ?: throw NotFoundException()
+            val response = "Deleted\n"
+            call.respond(response)
         }
     }
 }
