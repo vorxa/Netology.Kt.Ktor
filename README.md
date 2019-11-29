@@ -1,1 +1,1 @@
-ncraftserver
+ncmserver.herokuapps.com
