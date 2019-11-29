@@ -1,1 +1,1 @@
-web: ./build/install/Netology.Kt.NCraftServer/bin/Netology.Kt.NCraftServer
+web: ./build/install/NCraftServer/bin/NCraftServer

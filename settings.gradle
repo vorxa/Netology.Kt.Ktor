@@ -1,4 +1,2 @@
 rootProject.name = 'NCraftServer'
-include 'Netology.Kt.NCraftServer'
-findProject(':Netology.Kt.NCraftServer')?.name = 'NCraftServer'
 
