@@ -1,1 +1,1 @@
-ncmserver.herokuapps.com
+ncmserver.herokuapp.com
