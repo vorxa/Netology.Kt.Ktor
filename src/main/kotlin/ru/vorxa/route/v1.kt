@@ -28,7 +28,7 @@ fun Routing.v1() {
         }
         post {
             val input = call.receive<PostRequestDto>()
-            val model = PostModel(id = input.id, author = input.author, content = input.content)
+            val model = PostModel(id = input.id, author = input.author, content = input.content, postType = input.postType)
             val response = PostResponseDto.fromModel(repo.save(model))
             call.respond(response)
         }
