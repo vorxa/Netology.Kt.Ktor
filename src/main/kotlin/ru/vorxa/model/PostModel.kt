@@ -2,12 +2,12 @@ package ru.vorxa.model
 
 import ru.vorxa.dto.PostResponseDto
 
-data class PostModel (
+data class PostModel(
     val id: Long,
     val author: String,
     val content: String? = null,
     val created: Long = System.currentTimeMillis()/1000,
-    val postType: PostType = PostType.POST,
+    val postType: PostType? = PostType.POST,
     val source: PostResponseDto? = null,
     val address: String? = null,
     val location: Pair<Double, Double>? = null,

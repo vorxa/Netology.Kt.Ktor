@@ -11,6 +11,7 @@ import org.kodein.di.ktor.kodein
 import ru.vorxa.dto.PostRequestDto
 import ru.vorxa.dto.PostResponseDto
 import ru.vorxa.model.PostModel
+import ru.vorxa.model.PostType
 import ru.vorxa.repository.PostRepository
 
 fun Routing.v1() {
@@ -28,13 +29,33 @@ fun Routing.v1() {
         }
         post {
             val input = call.receive<PostRequestDto>()
-            val model = PostModel(id = input.id, author = input.author, content = input.content, postType = input.postType)
+            val model = PostModel(
+                id = input.id,
+                author = input.author,
+                content = input.content,
+                postType = input.postType,
+                source = input.source,
+                address = input.address,
+                location = input.location,
+                videoLink = input.videoLink,
+                adLink = input.adLink,
+                likedByMe = input.likedByMe,
+                commentedByMe = input.commentedByMe,
+                sharedByMe = input.sharedByMe,
+                likes = input.likes,
+                comments = input.comments,
+                shares = input.shares
+            )
+            if (model.postType == PostType.REPOST && model.source == null) {
+                throw NullPointerException()
+            }
             val response = PostResponseDto.fromModel(repo.save(model))
             call.respond(response)
         }
         delete("/{id}") {
             val id = call.parameters["id"]?.toLongOrNull() ?: throw ParameterConversionException("id", "Long")
-            repo.removeById(id) ?: throw NotFoundException()
+            val model = repo.getById(id) ?: throw NotFoundException()
+            repo.removeById(id)
             val response = "Deleted\n"
             call.respond(response)
         }

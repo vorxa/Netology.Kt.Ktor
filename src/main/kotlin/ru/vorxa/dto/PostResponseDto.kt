@@ -9,7 +9,7 @@ data class PostResponseDto(
     val author: String,
     val content: String? = null,
     val created: Long,
-    val postType: PostType = PostType.POST,
+    val postType: PostType? = PostType.POST,
     val source: PostResponseDto? = null,
     val address: String? = null,
     val location: Pair<Double, Double>? = null,
