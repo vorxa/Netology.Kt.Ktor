@@ -11,11 +11,5 @@ data class PostRequestDto(
     val address: String? = null,
     val location: Pair<Double, Double>? = null,
     val videoLink: String? = null,
-    val adLink: String? = null,
-    val likedByMe: Boolean = false,
-    val commentedByMe: Boolean = false,
-    val sharedByMe: Boolean = false,
-    val likes: Long = 0,
-    val comments: Long = 0,
-    val shares: Long = 0
+    val adLink: String? = null
 )

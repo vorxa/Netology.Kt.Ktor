@@ -38,13 +38,7 @@ fun Routing.v1() {
                 address = input.address,
                 location = input.location,
                 videoLink = input.videoLink,
-                adLink = input.adLink,
-                likedByMe = input.likedByMe,
-                commentedByMe = input.commentedByMe,
-                sharedByMe = input.sharedByMe,
-                likes = input.likes,
-                comments = input.comments,
-                shares = input.shares
+                adLink = input.adLink
             )
             if (model.postType == PostType.REPOST && model.source == null) {
                 throw NullPointerException()
